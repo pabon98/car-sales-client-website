@@ -6,6 +6,7 @@ import { useParams } from 'react-router';
 import { Card, Col, Row, Container } from 'react-bootstrap';
 import useAuth from '../../components/hooks/useAuth/useAuth';
 import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 
 const Purchase = () => {
     const{productId} = useParams()
@@ -44,7 +45,9 @@ const Purchase = () => {
     }, [productId])
 
     return (
-        <Container>
+        <div>
+            <Navbar></Navbar>
+            <Container>
         <Row className='mt-5 '>
             <Col lg={4}>
               
@@ -88,6 +91,8 @@ const Purchase = () => {
             </Col>
         </Row>
     </Container>
+<Footer></Footer>
+        </div>
     );
 };
 

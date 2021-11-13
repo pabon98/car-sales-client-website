@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import Reviews from "../Reviews/Reviews";
 
 const Home = () => {
     const[products, setProducts] = useState([])
@@ -89,6 +90,7 @@ const Home = () => {
       </div>
       <div className="my-4">
         <h1>Review Section</h1>
+        <Reviews></Reviews>
       </div>
 
     </div>

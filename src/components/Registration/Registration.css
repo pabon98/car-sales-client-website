@@ -1,4 +1,4 @@
-.loginFormMainDiv {
+.registrationFormMainDiv {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-.loginFormDiv {
+.registrationFormDiv {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -14,14 +14,14 @@
   width: 60%;
 }
 
-.loginForm__title {
+.registrationForm__title {
   text-align: center;
   margin: 5% 0;
   text-transform: uppercase;
   font-weight: bold;
 }
 
-.loginForm {
+.registrationForm {
   padding: 0 10% 10% 10%;
   width: 100%;
   display: flex;
@@ -29,12 +29,11 @@
   flex-direction: column;
 }
 
-
 @media screen and (max-width: 768px) {
-  .loginFormDiv {
+  .registrationFormDiv {
     width: 100%;
   }
-  .loginFormMainDiv {
+  .registrationFormMainDiv {
     min-height: 80vh;
   }
 }

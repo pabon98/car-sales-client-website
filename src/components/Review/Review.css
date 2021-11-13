@@ -1,4 +1,4 @@
-.add-tour form {
+/* .add-tour form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,4 +7,15 @@
 .add-tour form input, textarea{
     width: 40%;
     margin-bottom: 10px;
+} */
+
+.add-review form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.add-review form input, textarea{
+    width: 40%;
+    margin-bottom: 12px;
 }

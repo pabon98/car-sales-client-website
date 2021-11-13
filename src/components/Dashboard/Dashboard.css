@@ -1,61 +1,4 @@
-/* body {
-    margin: 0;
-    font-family: "Lato", sans-serif;
-  }
-  
-  .sidebar {
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
-  }
-  
-  .sidebar a {
-    display: block;
-    color: black;
-    padding: 16px;
-    text-decoration: none;
-  }
-   
-  .sidebar a.active {
-    background-color: #04AA6D;
-    color: white;
-  }
-  
-  .sidebar a:hover:not(.active) {
-    background-color: #555;
-    color: white;
-  }
-  
-  div.content {
-    margin-left: 200px;
-    padding: 1px 16px;
-    height: 1000px;
-  }
-  
-  @media screen and (max-width: 700px) {
-    .sidebar {
-      width: 100%;
-      height: auto;
-      position: relative;
-    }
-    .sidebar a {float: left;}
-    div.content {margin-left: 0;}
-  }
-  
-  @media screen and (max-width: 400px) {
-    .sidebar a {
-      text-align: center;
-      float: none;
-    }
-  } */
-
-  
-
-  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
   height: 450px;
 }
@@ -63,8 +6,8 @@
 /* Set gray background color and 100% height */
 .sidenav {
   padding-top: 20px;
-  background-color: #f1f1f1;
-  height: 100%;
+  background-color: rgb(239, 235, 243);
+  height: 150%;
 }
 
 /* On small screens, set height to 'auto' for sidenav and grid */

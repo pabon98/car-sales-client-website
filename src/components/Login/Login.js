@@ -1,198 +1,106 @@
-import useAuth from "../../components/hooks/useAuth/useAuth";
-import { useState } from "react";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  sendEmailVerification,
-  sendPasswordResetEmail,
-} from "firebase/auth";
-import loginimg from '../../images/admin-login.jpg'
+import React from "react";
 import "./Login.css";
-import { useHistory, useLocation } from "react-router";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
-import Header from "../Header/Header";
-
+import Input from "../Input/Input";
+import Button from "../Button/Button";
+import { Container } from "react-bootstrap";
+import { Link, Redirect, } from "react-router-dom";
+import { useLocation, useHistory } from "react-router";
+import useAuth from "../hooks/useAuth/useAuth";
 
 const Login = () => {
-  const location = useLocation()
-  const history = useHistory()
-  const auth = getAuth();
-  const { signInUsingGoogle } = useAuth();
-  const [email, setEmail] = useState("");
-  const [name,setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [isLogin1, setIsLogin1] = useState(false);
-
-  const toggleLogin = (e) => {
-    setIsLogin1(e.target.checked);
-  };
-
-  const handleEmailChange = (e) => {
+  const {
+    handleGoogleSignIn,
+    signInusingEmailPassword,
+    setEmail,
+    setPassword,
+    error,
+    user,
+    setUser, setError
+  } = useAuth();
+  const history = useHistory();
+  const handleEmail = (e) => {
     setEmail(e.target.value);
   };
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
-  const handlePasswordChange = (e) => {
+  const handlePassword = (e) => {
     setPassword(e.target.value);
   };
-  const handleResetPassword = () => {
-    sendPasswordResetEmail(auth, email).then((result) => {});
-  };
-
-  const handleRegistration = (e) => {
+  const handledefault = (e) => {
     e.preventDefault();
-    console.log(name,email,password);
-    // checking password length
-    if (password.length < 6) {
-      setError("Password Must Be 6 Character");
-      return;
-    }
-    // case sensitive condition
-    if (!/(?=.*[0-9].*[0-9])/.test(password)) {
-      setError("Password Must contain 2 digit");
-      return;
-    }
-    if (isLogin1) {
-      processLogin(name,email, password);
-    } else {
-      registerNewUser(name,email, password);
-    }
-    document.getElementById("myForm").reset();
-    
   };
-
-  const processLogin = (name,email,password,history,location) => {
-    signInWithEmailAndPassword(auth, email, password,name)
+  const location = useLocation();
+  const redirect_url = location.state?.from || "/";
+;
+  const handleGoogleSignInRedirect = () => {
+       handleGoogleSignIn()
       .then((result) => {
-        const user = result.user;
-        console.log(user);
-        const destination = location?.state?.from || '/'
-        history.replace(destination)
+        console.log(result.user);
+        setUser(result.user);
         setError("");
-
-       
+        history.push(redirect_url);
+        
       })
       .catch((error) => {
-        setError(error.message);
+        // setError(error.message);
       });
   };
-
-  const registerNewUser = (name,email, password, history) => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        // const user = {email, displayName:name}
-        // setUser(user)
-        // history.replace('/')
-        setError("");
-        verifyEmail();
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
-  };
-  const verifyEmail = () => {
-    sendEmailVerification(auth.currentUser).then((result) => {
-      console.log(result);
-    });
-  };
-
   return (
-    <div>
-      <Navbar></Navbar>
-      <Header></Header>
-      <div className="row">
-      <div className="col-md-7">
-      <img className="w-50 img-fluid" src={loginimg} alt="" />
-      </div>
-      <div className="col-md-5">
-      <form id="myForm" className="w-50" onSubmit={handleRegistration}>
-      <div className="bg-white">
-        <h2 className="text-dark justify-content-center">
-          Please {isLogin1 ? "Login" : "Register"}
-        </h2>
-
-        <div className="form">
-          <div className="row"></div>
-          <div className="row">
-            <div className="col mt-md-0 mt-3">
-              
-              <label className="text-start">Name</label>
-              <input
-                onBlur={handleNameChange}
+    <>
+      <Container>
+        <div className="loginFormMainDiv">
+          <div className="loginFormDiv">
+            <h2 className="loginForm__title">Login Form</h2>
+            <form onSubmit={handledefault} className="loginForm">
+              <Input
+                onBlur={handleEmail}
+                isFloatingLabelInput={true}
+                label="Enter Email"
+                name="username"
+                value=""
                 type="text"
-                name="name"
-                className="form-control"
+                placeholder="Enter your username"
                 required
               />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col mt-md-0 mt-3">
-              
-              <label className="text-start">Email</label>
-              <input
-                onBlur={handleEmailChange}
-                type="email"
-                className="form-control"
-                required
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col mt-md-0 mt-3">
-             
-              <label className="text-start">Password</label>
-              <input
-                onBlur={handlePasswordChange}
+              <Input
+                onBlur={handlePassword}
+                isFloatingLabelInput={true}
+                label="Enter your password"
+                name="password"
+                value=""
                 type="password"
-                className="form-control"
+                placeholder="Enter your password"
                 required
               />
-            </div>
+              <small className="m-2 text-danger">{error}</small>
+              <div className="mb-1">
+                {user.email && <Redirect to="/"></Redirect>}
+                <button
+                  className="btn btn-primary fs-5 w-100 bold "
+                  onClick={signInusingEmailPassword}
+                >
+                  Login
+                </button>
+              </div>
+              <div className="mb-3">
+                <button
+                  className="btn btn-success fs-5 w-100 bold "
+                  onClick={handleGoogleSignInRedirect}
+                >
+                  <i className="fab fa-google" />
+                  Login With Google
+                </button>
+              </div>
+
+              <div className="text-center">
+                <p>
+                  Haven't Account? <Link to="/registration">Register</Link>
+                </p>
+              </div>
+            </form>
           </div>
-          <div className="d-flex mx-1 justify-content-center">
-            <input
-              onChange={toggleLogin}
-              className="form-check-input mx-2"
-              type="checkbox"
-              id="gridCheck"
-            />
-            <label className="form-check-label" for="gridCheck">
-              Already Registred?
-            </label>
-          </div>
-          <div className="text-danger fw-bold">{error}</div>
-          <button className="btn btn-outline-dark mt-3 mx-2">
-            {isLogin1 ? "Login" : "Register"}
-          </button>
-          <br /> <br />
-          <button
-            type="button"
-            onClick={handleResetPassword}
-            className="btn btn-warning btn-sm"
-          >
-            Reset Password
-          </button>
-          <br />
-          <button
-            onClick={signInUsingGoogle}
-            className="btn btn-outline-danger mt-3 mx-2"
-          >
-            Google SignIn
-          </button>
         </div>
-      </div>
-    </form>
-      </div>
-    </div>
-    <Footer></Footer>
-    </div>
+      </Container>
+    </>
   );
 };
+
 export default Login;

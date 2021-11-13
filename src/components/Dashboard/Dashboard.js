@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router';
 import { Link } from 'react-router-dom';
-import Footer from '../Footer/Footer';
+import AddCar from '../AddCar/AddCar';
+import useFirebase from '../hooks/useFirebase/useFirebase';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import ManageOrders from '../ManageOrders/ManageOrders';
+import ManageProducts from '../ManageProducts/ManageProducts';
 import MyOrders from '../MyOrders/MyOrders';
 import Navbar from '../Navbar/Navbar';
 import Pay from '../Pay/Pay';
@@ -9,25 +13,59 @@ import Review from '../Review/Review';
 import './Dashboard.css'
 
 const Dashboard = () => {
+  const { user } = useFirebase();
+  const [isAdmin, setIsAdmin] = useState(false);
+  useEffect(() => {
+    fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data[0]?.role === "admin") {
+          setIsAdmin(true);
+        } else {
+          setIsAdmin(false);
+        }
+      });
+  }, [user?.email]);
+  console.log(isAdmin);
     return (
        <div>
            <Navbar></Navbar>
             <div class="container-fluid text-center">
       <div class="row content">
         <div class="col-sm-2 sidenav">
-          <h2>DASHBOARD</h2>
-
+          <p>DASHBOARD</p>
+          <Link to="/home">
+          <button className="btn btn-outline-primary">Home</button>
+          </Link>
+          <br /> <br />
           <Link to="/dashboard/pay">
-            <button className="btn btn-outline-danger">Payment</button>
+            <button className="btn btn-outline-primary">Payment</button>
           </Link>
           <br /> <br />
           <Link to="/dashboard/review">
-            <button className="btn btn-outline-warning mb-2">Review</button>
+            <button className="btn btn-outline-primary">Review</button>
           </Link>
           <br /> <br />
           <Link to="/dashboard/myOrders">
-            <button className="btn btn-outline-warning mb-2">My Orders</button>
+            <button className="btn btn-outline-primary">My Orders</button>
           </Link>
+          <br /><br />
+         { isAdmin && (<Link to="/dashboard/makeAdmin">
+            <button className="btn btn-outline-danger">Make Admin</button>
+          </Link>)}
+          <br /><br />
+        { isAdmin &&  (<Link to="/dashboard/addCar">
+            <button className="btn btn-outline-danger">Add Car</button>
+          </Link>)}
+          <br /><br />
+         { isAdmin && (<Link to="/dashboard/manageOrders">
+            <button className="btn btn-outline-danger">Manage Orders</button>
+          </Link>)}
+          <br /><br />
+         { isAdmin && (<Link to="/dashboard/manageProducts">
+            <button className="btn btn-outline-danger">Manage Products</button>
+          </Link>)}
+          
         </div>
         <div class="col-sm-10 text-left">
           <Switch>
@@ -40,62 +78,25 @@ const Dashboard = () => {
             <Route exact path="/dashboard/myorders">
             <MyOrders></MyOrders>
             </Route>
+            <Route exact path="/dashboard/addCar">
+            <AddCar></AddCar>
+            </Route>
+            <Route exact path="/dashboard/manageOrders">
+            <ManageOrders></ManageOrders>
+            </Route>
+            <Route exact path="/dashboard/manageProducts">
+            <ManageProducts></ManageProducts>
+            </Route>
+            <Route exact path="/dashboard/makeAdmin">
+            <MakeAdmin></MakeAdmin>
+            </Route>
           </Switch>
         </div>
       </div>
     </div>
-    <Footer></Footer> 
        </div>
 
     );
 };
 
 export default Dashboard;
-
-
-
-
-
-
-
-    /* 
-    <div>
-            <Navbar></Navbar>
-            <div className="sidebar">
-                <h2>Dashboard</h2>
-        <a className="" href="#home">Home</a>
-        <Link to="/dashboard/pay">
-        <li style={{listStyle:"none"}}>Pay</li>
-        </Link>
-        <Link to="/dashboard/myorders">
-        <li style={{listStyle:"none"}}>My Orders</li>
-        </Link>
-       <Link to="/dashboard/review">
-       <li style={{listStyle:"none"}}>Review</li>
-       </Link>
-        <button className="btn btn-outline-dark mt-2">LogOut</button>
-      </div>
-      
-      <div className="content">
-        <h2>Responsive Sidebar Example</h2>
-        <p>This example use media queries to transform the sidebar to a top navigation bar when the screen size is 700px or less.</p>
-        <p>We have also added a media query for screens that are 400px or less, which will vertically stack and center the navigation links.</p>
-        <h3>Resize the browser window to see the effect.</h3>
-      </div>
-      <Switch>
-                    <Route exact path="dashboard/pay">
-                        <Pay></Pay>
-                    </Route>
-                    <Route exact path="dashboard/review">
-                        <Review></Review>
-                    </Route>
-                    <Route exact path="/dashboard/myorders">
-                     <MyOrders></MyOrders>
-                    </Route>
-                    {/* <AdminRoute path={`${path}/addDoctor`}>
-                        <AddDoctor></AddDoctor>
-                    </AdminRoute> */
-                    // </Switch>
-                    // <Footer></Footer>
-                    //   </div>
-               
