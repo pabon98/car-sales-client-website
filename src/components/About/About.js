@@ -1,8 +1,13 @@
 import React from 'react';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
+import Navbar from '../Navbar/Navbar';
 
 const About = () => {
     return (
         <div>
+          <Navbar></Navbar>
+          <Header></Header>
             <h1>About Us</h1>
             <p className="fs-3">
             We are selling cars and cars parts from 10 <years className="br"></years> we sell brand product. We are also renowned for our best products. <br /> You will find positive reviews in our site.So don't hesitate.Order now in our site
@@ -78,6 +83,7 @@ const About = () => {
   </div>
 </div>
        </div>
+       <Footer></Footer>
         </div>
     );
 };
