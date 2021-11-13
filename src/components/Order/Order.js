@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Col, Button } from 'react-bootstrap';
 
 const Order = (props) => {
-    const { orderId, image, title, description, price, status, date } = props.service;
+    const { orderId, image, title, description, price, status, date } = props.car;
     const { handleCancelOrder } = props;
 
     return (
