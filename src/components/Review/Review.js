@@ -48,7 +48,7 @@ const Review = () => {
         axios.post('https://murmuring-castle-14767.herokuapp.com/review', data)
             .then(res => {
                 if (res.data.insertedId) {
-                    alert('Added successfully');
+                    alert('Review added successfully');
                     reset();
                 }
             })

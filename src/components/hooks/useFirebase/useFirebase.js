@@ -98,7 +98,7 @@ initializeAuthentication()
         }
         setIsLoading(false);
       });
-    }, []);
+    }, [auth]);
     const handleGoogleSignIn = () => {
       setIsLoading(true);
       const googleProvider = new GoogleAuthProvider();

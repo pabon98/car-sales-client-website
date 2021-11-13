@@ -12,12 +12,14 @@ const MakeAdmin = () => {
     })
       .then((res) => res.json())
       .then((result) => console.log(result));
+      alert('Admin added Successfully')
+      document.getElementById('form-reset').reset()
     console.log(data);
   };
   return (
     <div>
       <h1 className='mb-3'>Add New admin</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form id="form-reset" onSubmit={handleSubmit(onSubmit)}>
         <input
           className="input-field"
           name="email"
