@@ -33,8 +33,43 @@ const Dashboard = () => {
             <div class="container-fluid text-center">
       <div class="row content">
         <div class="col-sm-2 sidenav">
-          <p>DASHBOARD</p>
-          <Link to="/home">
+          <h3>DASHBOARD</h3>
+          {/* <Link to="/home">
+          <button className="btn btn-outline-primary">Home</button>
+          </Link>
+          <br /> <br />
+          <Link to="/dashboard/pay">
+            <button className="btn btn-outline-primary">Payment</button>
+          </Link>
+          <br /> <br />
+          <Link to="/dashboard/review">
+            <button className="btn btn-outline-primary">Review</button>
+          </Link>
+          <br /> <br />
+          <Link to="/dashboard/myOrders">
+            <button className="btn btn-outline-primary">My Orders</button>
+          </Link> */}
+          {
+            isAdmin?
+            <div>
+              <Link to="/dashboard/makeAdmin">
+            <button className="btn btn-outline-danger">Make Admin</button>
+          </Link> 
+          <br /><br />
+          <Link to="/dashboard/addCar">
+            <button className="btn btn-outline-danger">Add Car</button>
+          </Link>
+          <br /><br />
+          <Link to="/dashboard/manageOrders">
+            <button className="btn btn-outline-danger">Manage Orders</button>
+          </Link>
+          <br /><br />
+          <Link to="/dashboard/manageProducts">
+            <button className="btn btn-outline-danger">Manage Products</button>
+          </Link>
+            </div>:
+            <div>
+             <Link to="/home">
           <button className="btn btn-outline-primary">Home</button>
           </Link>
           <br /> <br />
@@ -49,8 +84,9 @@ const Dashboard = () => {
           <Link to="/dashboard/myOrders">
             <button className="btn btn-outline-primary">My Orders</button>
           </Link>
-          <br /><br />
-         { isAdmin && (<Link to="/dashboard/makeAdmin">
+            </div>
+          }
+         {/* { isAdmin && (<Link to="/dashboard/makeAdmin">
             <button className="btn btn-outline-danger">Make Admin</button>
           </Link>)}
           <br /><br />
@@ -64,7 +100,7 @@ const Dashboard = () => {
           <br /><br />
          { isAdmin && (<Link to="/dashboard/manageProducts">
             <button className="btn btn-outline-danger">Manage Products</button>
-          </Link>)}
+          </Link>)} */}
           
         </div>
         <div class="col-sm-10 text-left">

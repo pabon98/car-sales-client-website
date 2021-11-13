@@ -225,7 +225,7 @@ const Navbar = () => {
             ) : (
               <NavLink to="/loginform">
                 <button
-                  className="btn btn btn-outline-dark position-absolute top-50 end-0 translate-middle-y mx-5"
+                  className="btn  btn-outline-danger position-absolute top-50 end-0 translate-middle-y mx-5"
                   type=""
                   data-bs-toggle="tooltip"
                   data-bs-placement="bottom"
