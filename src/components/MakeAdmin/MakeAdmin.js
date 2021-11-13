@@ -5,7 +5,7 @@ const MakeAdmin = () => {
     const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/makeAdmin", {
+    fetch("https://murmuring-castle-14767.herokuapp.com/makeAdmin", {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
@@ -28,9 +28,9 @@ const MakeAdmin = () => {
         <br />
 
         <input
-          className="submit-btn btn btn-dark mt-3"
+          className="submit-btn btn btn-outline-dark px-2 mt-2"
           type="submit"
-          value="make as Admin"
+          value="Make Admin"
         />
       </form>
     </div>

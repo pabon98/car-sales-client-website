@@ -10,7 +10,7 @@
 //     const onSubmit = data => {
 //         console.log(data);
 
-//         axios.post('http://localhost:5000/cars', data)
+//         axios.post('https://murmuring-castle-14767.herokuapp.com/cars', data)
 //             .then(res => {
 //                 if (res.data.insertedId) {
 //                     alert('added successfully');
@@ -45,7 +45,7 @@ const Review = () => {
     const onSubmit = data => {
         console.log(data);
 
-        axios.post('http://localhost:5000/review', data)
+        axios.post('https://murmuring-castle-14767.herokuapp.com/review', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added successfully');

@@ -42,7 +42,7 @@
 //     }
 //     const saveUser = (email,displaName)=>{
 //         const user = {email,displaName}
-//         fetch('http://localhost:5000/users',{
+//         fetch('https://murmuring-castle-14767.herokuapp.com/users',{
 //             method:'POST',
 //             headers:{
 //                 'content-type': 'application/json'
@@ -166,7 +166,7 @@ initializeAuthentication()
   
   
     const hanldeUserInfoRegister = (email) => {
-      fetch("http://localhost:5000/addUserInfo", {
+      fetch("https://murmuring-castle-14767.herokuapp.com/addUserInfo", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ email }),
