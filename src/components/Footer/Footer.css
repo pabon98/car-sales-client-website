@@ -24,13 +24,13 @@
     padding: 50px;
     color: white;
   }
-  .right-footer-container button{
-    background-color:rgb(0, 103, 184);
+  /* .right-footer-container button{
+    background-color:#396ac9
   }
   .right-footer-container button:hover{
     background-color: rgba(65, 101, 211, 0.986);
     color: antiquewhite;
-  }
+  } */
   .reserved{
     margin-top: 20px;
   }

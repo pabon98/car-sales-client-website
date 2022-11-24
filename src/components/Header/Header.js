@@ -8,7 +8,8 @@ const Header = () => {
            <div className="py-5">
               <br /><br /><br /><br /><br /> <br /> <br />
           <div className="header-content">
-          <h1 className='text-white fs-1'>Find Your dream Car</h1>
+          <h3 className='text-white fs-1'>Modern Classic Decorative</h3>
+          <p className='text-white fs-2'>Get 20% off on selected items</p>
           </div>
            <div>
            <p className="text-white header-content fs-3">We can help you find the best car. Check our reviews, compare models and find cars for sale.</p>

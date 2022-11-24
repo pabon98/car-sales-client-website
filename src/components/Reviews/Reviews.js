@@ -5,7 +5,7 @@ import "./Reviews.css";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch(`https://murmuring-castle-14767.herokuapp.com/review`)
+    fetch(`https://car-sales-server-website.vercel.app/review`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);

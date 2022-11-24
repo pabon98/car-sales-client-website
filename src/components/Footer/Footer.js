@@ -57,7 +57,9 @@ const Footer = () => {
                     type="text"
                     placeholder="Enter Email"
                   />
-                  <button className="p-2 my-2">Registration</button>
+                  <Link to="/loginForm">
+                  <button className="btn btn-outline-warning">Registration</button>
+                  </Link>
                   <div className="phone d-flex align-items-center justify-content-center mt-4">
                     <div className="foter-phone-icon"></div>
                     <div>

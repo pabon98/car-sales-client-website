@@ -11,7 +11,7 @@ import Reviews from "../Reviews/Reviews";
 const Home = () => {
     const[products, setProducts] = useState([])
     useEffect( ()=>{
-        fetch('https://murmuring-castle-14767.herokuapp.com/cars')
+        fetch('https://car-sales-server-website.vercel.app/cars')
         .then(res=>res.json())
         .then(data=> setProducts(data))
     },[])
@@ -58,9 +58,9 @@ const Home = () => {
         </button>
       </div>
       {/* Products Section */}
+      <div className="container my-4">
       <h1>Our Products</h1>
-      <div className="container">
-      <div className="row">
+      <div className="row ms-4">
 
         {
           products.slice(0,6).map(product=>(
