@@ -16,7 +16,7 @@ const Dashboard = () => {
   const { user } = useFirebase();
   const [isAdmin, setIsAdmin] = useState(false);
   useEffect(() => {
-    fetch(`https://car-sales-server-website.vercel.app/checkAdmin/${user?.email}`)
+    fetch(`https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/checkAdmin/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data[0]?.role === "admin") {

@@ -18,7 +18,7 @@ const Purchase = () => {
         data.order = products._id;
         data.status = 'pending';
 
-        const url = `https://car-sales-server-website.vercel.app/purchase`;
+        const url = `https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/purchase`;
        
         fetch(url, {
             method: 'POST',
@@ -37,7 +37,7 @@ const Purchase = () => {
     };
 
     useEffect(() => {
-        const url = `https://car-sales-server-website.vercel.app/cars/${productId}`;
+        const url = `https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/cars/${productId}`;
         
         fetch(url)
             .then(res => res.json())

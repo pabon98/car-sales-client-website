@@ -5,7 +5,7 @@ const MakeAdmin = () => {
     const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    fetch("https://car-sales-server-website.vercel.app/makeAdmin", {
+    fetch("https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/makeAdmin", {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

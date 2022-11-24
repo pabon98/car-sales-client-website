@@ -11,7 +11,7 @@ import Reviews from "../Reviews/Reviews";
 const Home = () => {
     const[products, setProducts] = useState([])
     useEffect( ()=>{
-        fetch('https://car-sales-server-website.vercel.app/cars')
+        fetch('https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/cars')
         .then(res=>res.json())
         .then(data=> setProducts(data))
     },[])

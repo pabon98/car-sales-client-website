@@ -8,7 +8,7 @@ const AddCar = () => {
     const onSubmit = data => {
         console.log(data);
 
-        axios.post('https://car-sales-server-website.vercel.app/cars', data)
+        axios.post('https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/cars', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added successfully');

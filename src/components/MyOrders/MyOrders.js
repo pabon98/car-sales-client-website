@@ -11,7 +11,7 @@ const MyOrders = () => {
     const { user } = useAuth();
 
     useEffect(() => {
-        const url = `https://car-sales-server-website.vercel.app/myOrders/${user?.email}`;
+        const url = `https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/myOrders/${user?.email}`;
        
         fetch(url)
             .then(res => res.json())
@@ -19,7 +19,7 @@ const MyOrders = () => {
     }, [user.email])
 
     useEffect(() => {
-        const url = `https://car-sales-server-website.vercel.app/cars`;
+        const url = `https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/cars`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -50,7 +50,7 @@ const MyOrders = () => {
         // console.log(id);
         const proceed = window.confirm('Are you sure, you want to cancel the order?')
         if (proceed) {
-            const url = `https://car-sales-server-website.vercel.app/deleteOrder/${id}`;
+            const url = `https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/deleteOrder/${id}`;
             
             fetch(url, {
                 method: 'DELETE'
