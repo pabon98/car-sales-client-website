@@ -9,7 +9,7 @@ const ManageOrders = () => {
 
     useEffect(() => {
       
-        const url = `https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/orders`;
+        const url = `https://murmuring-castle-14767.herokuapp.com/orders`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -24,7 +24,7 @@ const ManageOrders = () => {
         updatedorder.status = 'Shipped';
 
         
-        const url = `https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/approve/${id}`;
+        const url = `https://murmuring-castle-14767.herokuapp.com/approve/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -48,7 +48,7 @@ const ManageOrders = () => {
         console.log(id);
         const proceed = window.confirm('Are you sure, you want to cancel the order?')
         if (proceed) {
-            const url = `https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/deleteOrder/${id}`
+            const url = `https://murmuring-castle-14767.herokuapp.com/deleteOrder/${id}`
             
             fetch(url, {
                 method: 'DELETE'

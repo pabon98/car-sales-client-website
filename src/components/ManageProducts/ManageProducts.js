@@ -8,7 +8,7 @@ const ManageProducts = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const url = `https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/cars`;
+        const url = `https://murmuring-castle-14767.herokuapp.com/cars`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -22,7 +22,7 @@ const ManageProducts = () => {
         console.log(id);
         const proceed = window.confirm('Are you sure, you want to delete the product?')
         if (proceed) {
-            const url = `https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/deleteProduct/${id}`
+            const url = `https://murmuring-castle-14767.herokuapp.com/deleteProduct/${id}`
             fetch(url, {
                 method: 'DELETE'
             })

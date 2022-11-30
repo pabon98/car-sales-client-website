@@ -7,7 +7,7 @@ const Review = () => {
     const onSubmit = data => {
         console.log(data);
 
-        axios.post('https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/review', data)
+        axios.post('https://murmuring-castle-14767.herokuapp.com/review', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Review added successfully');

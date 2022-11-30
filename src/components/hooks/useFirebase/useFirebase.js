@@ -101,7 +101,7 @@ initializeAuthentication()
   
   
     const hanldeUserInfoRegister = (email) => {
-      fetch("https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/addUserInfo", {
+      fetch("https://murmuring-castle-14767.herokuapp.com/addUserInfo", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ email }),

@@ -8,7 +8,7 @@ import Navbar from "../Navbar/Navbar";
 const Explore = () => {
   const [cars, setCars] = useState([]);
   useEffect(() => {
-    fetch('https://car-sales-server-website-pcli28wq5-pabon98.vercel.app/cars')
+    fetch('https://murmuring-castle-14767.herokuapp.com/cars')
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, []);
