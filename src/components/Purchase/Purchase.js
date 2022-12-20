@@ -18,7 +18,7 @@ const Purchase = () => {
         data.order = products._id;
         data.status = 'pending';
 
-        const url = `https://murmuring-castle-14767.herokuapp.com/purchase`;
+        const url = `https://carsales-server.onrender.com/purchase`;
        
         fetch(url, {
             method: 'POST',
@@ -37,7 +37,7 @@ const Purchase = () => {
     };
 
     useEffect(() => {
-        const url = `https://murmuring-castle-14767.herokuapp.com/cars/${productId}`;
+        const url = `https://carsales-server.onrender.com/cars/${productId}`;
         
         fetch(url)
             .then(res => res.json())

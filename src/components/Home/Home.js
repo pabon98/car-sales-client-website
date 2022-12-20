@@ -11,7 +11,7 @@ import Reviews from "../Reviews/Reviews";
 const Home = () => {
     const[products, setProducts] = useState([])
     useEffect( ()=>{
-        fetch('https://murmuring-castle-14767.herokuapp.com/cars')
+        fetch('https://carsales-server.onrender.com/cars')
         .then(res=>res.json())
         .then(data=> setProducts(data))
     },[])

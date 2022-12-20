@@ -8,7 +8,7 @@ const AddCar = () => {
     const onSubmit = data => {
         console.log(data);
 
-        axios.post('https://murmuring-castle-14767.herokuapp.com/cars', data)
+        axios.post('https://carsales-server.onrender.com/cars', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added successfully');

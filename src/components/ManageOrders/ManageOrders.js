@@ -9,7 +9,7 @@ const ManageOrders = () => {
 
     useEffect(() => {
       
-        const url = `https://murmuring-castle-14767.herokuapp.com/orders`;
+        const url = `https://carsales-server.onrender.com/orders`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -24,7 +24,7 @@ const ManageOrders = () => {
         updatedorder.status = 'Shipped';
 
         
-        const url = `https://murmuring-castle-14767.herokuapp.com/approve/${id}`;
+        const url = `https://carsales-server.onrender.com/approve/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -48,7 +48,7 @@ const ManageOrders = () => {
         console.log(id);
         const proceed = window.confirm('Are you sure, you want to cancel the order?')
         if (proceed) {
-            const url = `https://murmuring-castle-14767.herokuapp.com/deleteOrder/${id}`
+            const url = `https://carsales-server.onrender.com/deleteOrder/${id}`
             
             fetch(url, {
                 method: 'DELETE'

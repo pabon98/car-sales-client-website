@@ -16,7 +16,7 @@ const Dashboard = () => {
   const { user } = useFirebase();
   const [isAdmin, setIsAdmin] = useState(false);
   useEffect(() => {
-    fetch(`https://murmuring-castle-14767.herokuapp.com/checkAdmin/${user?.email}`)
+    fetch(`https://carsales-server.onrender.com/checkAdmin/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data[0]?.role === "admin") {
