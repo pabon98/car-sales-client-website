@@ -16,3 +16,4 @@ This project was bootstrapped with (https://car-sales-website-132d9.web.app/).
 * you can see our details part after clicking on purchase .
 * After order you can also cancel order.
 * you can also contact us .
+* For admin login email: pabon@gmail.com Pass: 123456
