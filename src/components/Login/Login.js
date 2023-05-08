@@ -3,7 +3,7 @@ import "./Login.css";
 import Input from "../Input/Input";
 import { Container } from "react-bootstrap";
 import { Link, Redirect, } from "react-router-dom";
-import { useLocation, useHistory } from "react-router";
+import { useLocation, useHistory } from "react-router-dom";
 import useAuth from "../hooks/useAuth/useAuth";
 
 const Login = () => {
@@ -14,7 +14,8 @@ const Login = () => {
     setPassword,
     error,
     user,
-    setUser, setError
+    setUser, 
+    setError
   } = useAuth();
   const history = useHistory();
   const handleEmail = (e) => {

@@ -17,7 +17,7 @@ const Reviews = () => {
           // <TourCard drone={drone} key={drone._id}></TourCard>
           //   <DroneCard drone={drone} key={drone._id}></DroneCard>
           <ReviewCard review={review} key={review._id}>
-            {" "}
+           
           </ReviewCard>
         ))}
       </div>

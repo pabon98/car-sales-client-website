@@ -14,6 +14,7 @@ const AddCar = () => {
                     alert('Added successfully');
                     reset();
                 }
+                console.log(data);
             })
     }
     return (
@@ -22,6 +23,8 @@ const AddCar = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <input {...register("title", { required: true, maxLength: 20 })} placeholder="Name" />
             <textarea {...register("description")} placeholder="Description" />
+            <input type="text" {...register("seats")} placeholder="Seats" />
+            <input type="text" {...register("engine")} placeholder="Engine" />
             <input type="number" {...register("price")} placeholder="price" />
             <input {...register("image")} placeholder="image url" />
             <input className='btn btn-dark' type="submit" />

@@ -7,6 +7,7 @@ import Navbar from "../Navbar/Navbar";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Reviews from "../Reviews/Reviews";
+import Pdf from "../Pdf";
 
 const Home = () => {
     const[products, setProducts] = useState([])
@@ -19,6 +20,7 @@ const Home = () => {
     <div>
       <Navbar></Navbar>
       <Header></Header>
+      {/* <Pdf></Pdf> */}
       <div className="my-3">
         {/* Caurosel section */}
         <h1>Some Amazing Cars</h1>

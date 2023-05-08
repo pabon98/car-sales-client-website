@@ -26,7 +26,7 @@ const Dashboard = () => {
         }
       });
   }, [user?.email]);
-  console.log(isAdmin);
+  // console.log(isAdmin);
     return (
        <div>
            <Navbar></Navbar>
