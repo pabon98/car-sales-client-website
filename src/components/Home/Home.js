@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
-import slide1 from '../../images/car-slide-2.jpg'
-import slide2 from '../../images/car-slide-5.jpg'
-import slide3 from '../../images/car-slide-4.jpg'
+import slide1 from "../../images/car-slide-2.jpg";
+import slide2 from "../../images/car-slide-5.jpg";
+import slide3 from "../../images/car-slide-4.jpg";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Reviews from "../Reviews/Reviews";
-import Pdf from "../Pdf";
 
 const Home = () => {
-    const[products, setProducts] = useState([])
-    useEffect( ()=>{
-        fetch('https://carsales-server.onrender.com/cars')
-        .then(res=>res.json())
-        .then(data=> setProducts(data))
-    },[])
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch("https://carsales-server.onrender.com/cars")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
   return (
     <div>
       <Navbar></Navbar>
@@ -24,79 +23,99 @@ const Home = () => {
       <div className="my-3">
         {/* Caurosel section */}
         <h1>Some Amazing Cars</h1>
-      <div
-        id="carouselExampleControls"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src={slide1}  class="d-block ms-auto me-auto  w-50 img-fluid" alt="..." />
+        <div
+          id="carouselExampleControls"
+          className="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img
+                src={slide1}
+                className="d-block ms-auto me-auto  w-50 img-fluid"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src={slide2}
+                className="d-block ms-auto me-auto  w-50 img-fluid"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src={slide3}
+                className="d-block ms-auto me-auto  w-50 img-fluid"
+                alt="..."
+              />
+            </div>
           </div>
-          <div class="carousel-item">
-            <img src={slide2}  class="d-block ms-auto me-auto  w-50 img-fluid" alt="..." />
-          </div>
-          <div class="carousel-item">
-            <img src={slide3}  class="d-block ms-auto me-auto  w-50 img-fluid" alt="..." />
+          <button
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev"
+          >
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
+            className="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="next"
+          >
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Next</span>
+          </button>
+        </div>
+        {/* Products Section */}
+        <div className="container my-4">
+          <h1>Our Products</h1>
+          <div className="row ms-4">
+            {products.slice(0, 6).map((product) => (
+              <div key={product._id} className="col-md-4 my-2">
+                <div
+                  className="card"
+                  style={{ width: "18rem" }}
+                  key={product.key}
+                >
+                  <img
+                    height="200px"
+                    src={product.image}
+                    className="card-img-top"
+                    alt="..."
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{product.title}</h5>
+                    <p className="card-text">
+                      {product.description.slice(0, 120)}
+                    </p>
+                    <h6>Price: {product.price}</h6>
+                    <br />
+
+                    <Link to={`/purchase/${product._id}`}>
+                      <button className="btn btn-warning">Purchase</button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+        <div className="my-4">
+          <h1>Review Section</h1>
+          <Reviews></Reviews>
+        </div>
       </div>
-      {/* Products Section */}
-      <div className="container my-4">
-      <h1>Our Products</h1>
-      <div className="row ms-4">
-
-        {
-          products.slice(0,6).map(product=>(
-            <div className="col-md-4 my-2">
-              <div class="card" style={{ width: "18rem" }} key={product.key}>
-            <img height="200px" src={product.image} class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">{product.title}</h5>
-              <p class="card-text">
-               {product.description.slice(0,120)}
-              </p>
-              <h6>Price: {product.price}</h6>
-              <br />
-           
-            <Link to={`/purchase/${product._id}`}>
-            <button className="btn btn-warning">Purchase</button>
-            </Link>
-            
-            </div>
-          </div>
-            </div>
-
-          ))
-        }
-       
-      </div>
-      </div>
-      <div className="my-4">
-        <h1>Review Section</h1>
-        <Reviews></Reviews>
-      </div>
-
-    </div>
-    <Footer></Footer>
+      <Footer></Footer>
     </div>
   );
 };

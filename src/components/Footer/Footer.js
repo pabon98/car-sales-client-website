@@ -5,7 +5,7 @@ import icon from '../../images/vehica-logo.webp'
 
 const Footer = () => {
     return (
-        <div>
+        <div style={{height: 100}}>
         <div className="footer-container my-4">
           <div className="container">
             <div className="row">

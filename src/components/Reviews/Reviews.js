@@ -11,15 +11,14 @@ const Reviews = () => {
   }, []);
   return (
     <div >
-      <h4 className=" text-center ">Our Customers Reviews</h4>
-      <div className="review-details mt-3">
-        {reviews.map((review) => (
-          // <TourCard drone={drone} key={drone._id}></TourCard>
-          //   <DroneCard drone={drone} key={drone._id}></DroneCard>
-          <ReviewCard review={review} key={review._id}>
+      <h4 className=" text-center mt-4">Our Customers Reviews</h4>
+      <div className="my-3">
+        {/* {reviews.map((review) => (
+          <ReviewCard review={review}  key={review._id}>
            
           </ReviewCard>
-        ))}
+        ))} */}
+        <ReviewCard  reviews={reviews}></ReviewCard>
       </div>
     </div>
   );

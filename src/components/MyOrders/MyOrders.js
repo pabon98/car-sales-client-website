@@ -83,9 +83,15 @@ const MyOrders = () => {
                             <Spinner animation="border" variant="dark" />
                         </div>
                 }
+                <button className='btn btn-success w-25 mx-auto my-3'>Print</button>
             </Row>
         </Container>
     );
 };
 
 export default MyOrders;
+
+
+
+
+
