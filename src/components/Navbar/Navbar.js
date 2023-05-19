@@ -6,7 +6,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const { user, handleLogOut } = useAuth();
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav className="navbar navbar-expand-lg navbar-light  sticky-top">
       <div className="container-fluid">
         <img
           style={{ width: "200px" }}
@@ -69,9 +69,9 @@ const Navbar = () => {
             <br />
             {user.email && (
               <Link to="/dashboard">
-                <button className="btn btn btn-outline-danger me-3">
-                  DASHBOARD
-                </button>
+                <li  className="me-3 ms-3">
+                  Dashboard
+                </li>
               </Link>
             )}
             <li className="nav-item nav-text text-white">
@@ -90,26 +90,24 @@ const Navbar = () => {
           </ul>
           {user.email ? (
             <div>
-              <button
+              <li
                 onClick={handleLogOut}
-                className="btn btn btn-outline-danger position-absolute top-50 end-0 translate-middle-y mx-5"
-                type=""
+                className="position-absolute text-white top-50 end-0 translate-middle-y mx-5"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
               >
                 Logout
-              </button>
+              </li>
             </div>
           ) : (
             <NavLink to="/loginform">
-              <button
-                className="btn  btn-outline-danger position-absolute top-50 end-0 translate-middle-y mx-5"
-                type=""
+              <li
+                className=" position-absolute top-50 end-0 translate-middle-y mx-5"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
               >
                 Login
-              </button>
+              </li>
             </NavLink>
           )}
         </div>
