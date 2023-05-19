@@ -48,8 +48,8 @@ const Purchase = () => {
         <div>
             <Navbar></Navbar>
             <Container>
-        <Row className='mt-5 '>
-            <Col lg={4}>
+        <Row className='mt-5 g-4'>
+            <Col lg={5}>
               
                     <Card className='p-0'>
                         <Card.Img variant="top" className='img-fluid' src={products?.image} />
@@ -60,7 +60,7 @@ const Purchase = () => {
                         </Card.Body>
                     </Card> 
             </Col>
-            <Col lg={8}>
+            <Col lg={7}>
                 <form className='border p-5 rounded mb-5' onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-3 text-start">
                         <label htmlFor="forName" className="form-label fw-bold">Name</label>

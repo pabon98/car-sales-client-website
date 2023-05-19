@@ -1,6 +1,5 @@
 import React from "react";
 import Footer from "../Footer/Footer";
-import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import "./Contact.css";
 import useAuth from "../hooks/useAuth/useAuth";
@@ -57,7 +56,6 @@ const Contact = () => {
   return (
     <div>
       <Navbar></Navbar>
-      {/* <Header></Header> */}
       <div class="container mt-5 shadow">
         <div class="row ">
           <div class="col-md-4 bg-primary p-5 text-white order-sm-first order-last">
@@ -137,7 +135,7 @@ const Contact = () => {
                 <input type="text" name="contact" class="form-control" id="Number" required />
               </div>
               <div class="col-12">
-                <button onClick={handleSubmit}  type="submit" class="btn btn-primary mt-3">
+                <button style={{background: '#01d28e', borderColor: '#01d28e', color: '#fff', borderRadius: 0, width: '100px'}} onClick={handleSubmit}  type="submit" class="btn btn-primary mt-3">
                   Submit
                 </button>
                 <ToastContainer

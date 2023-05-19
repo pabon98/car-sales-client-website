@@ -16,21 +16,21 @@ const Slider = () => {
             <div className="carousel-item active">
               <img
                 src={slide1}
-                className="d-block ms-auto me-auto  w-50 img-fluid"
+                className="d-block mx-auto w-50 img-fluid"
                 alt="..."
               />
             </div>
             <div className="carousel-item">
               <img
                 src={slide2}
-                className="d-block ms-auto me-auto  w-50 img-fluid"
+                className="d-block  mx-auto   w-50 img-fluid"
                 alt="..."
               />
             </div>
             <div className="carousel-item">
               <img
                 src={slide3}
-                className="d-block ms-auto me-auto  w-50 img-fluid"
+                className="d-block  mx-auto  w-50 img-fluid"
                 alt="..."
               />
             </div>

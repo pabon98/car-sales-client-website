@@ -90,8 +90,8 @@ const Login = () => {
                 </button>
               </div>
 
-              <div className="text-center">
-                <p>
+              <div className="text-center ">
+                <p className="text-sm fs-6">
                   Haven't Account? <Link to="/registration">Register</Link>
                 </p>
               </div>

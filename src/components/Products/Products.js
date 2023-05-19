@@ -11,7 +11,7 @@ const Products = () => {
     return (
         <div className='container'>
             <h1>Our Products</h1>
-            <div className="row container mx-auto">
+            <div className="row gx-5 ">
             {products.slice(0, 6).map((product) => (
               <div key={product._id} className="col-md-4 my-2">
                 <div

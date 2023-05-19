@@ -59,16 +59,15 @@ const Registration = () => {
             />
             <small className="m-2">{error}</small>
             <div className="mb-3">
-              <Button
+              <button
                 onClick={RegisterWithEmail}
-                btnclassName="btn-primary fs-5 w-100"
-                name="Registration"
+                className="btn-success py-2 fs-5 w-100 bold"
                 type="submit"
-              />
+              >Registration </button>
             </div>
             {user.email && <Redirect to="/"></Redirect>}
             <div className="text-center">
-              <p>
+              <p className="text-sm fs-6">
                 Already Registered? <Link to="/loginform">Login</Link>
               </p>
             </div>
