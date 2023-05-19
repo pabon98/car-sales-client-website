@@ -11,9 +11,9 @@ const Products = () => {
     return (
         <div className='container'>
             <h1>Our Products</h1>
-            <div className="row gx-5 ">
+            <div className="row">
             {products.slice(0, 6).map((product) => (
-              <div key={product._id} className="col-md-4 my-2">
+              <div key={product._id} className="col-md-3 my-2 mx-4">
                 <div
                   className="card"
                   style={{ width: "18rem"}}

@@ -21,8 +21,8 @@ const Explore = () => {
         <div className="container">
           <div className="row">
             {cars.map((car) => (
-              <div className="col-md-4 my-2" key={car.key}>
-                <div className="card" style={{ width: "18rem" }}>
+              <div className="col-md-3 my-2 mx-4" key={car.key}>
+                <div className="card" style={{ width: "18rem", height: '500px' }}>
                   <img
                     height="200px"
                     src={car.image}
