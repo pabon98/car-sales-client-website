@@ -15,8 +15,8 @@ const Explore = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <Header></Header>
-      <div>
+      {/* <Header></Header> */}
+      <div className="my-3">
         <h1>Explore Our All Products</h1>
         <div className="container">
           <div className="row">
