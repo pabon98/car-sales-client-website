@@ -12,7 +12,7 @@ const Navbar = () => {
           style={{ width: "200px" }}
           className="img-fluid"
           src={logo}
-          alt=""
+          alt="car logo"
         />
         <button
           className="navbar-toggler"

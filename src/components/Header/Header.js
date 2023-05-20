@@ -16,7 +16,7 @@ const Header = () => {
            <Link to="/loginform">
            <button  className="btn me-auto btn-warning p-2">Purchase Now</button>
            </Link>
-           <br /> <br /> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+           <br /> <br /> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
            </div>
             
            </div>
